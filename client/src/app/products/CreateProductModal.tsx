@@ -48,7 +48,7 @@ const CreateProductModal = ({ isOpen, onClose, onCreate }: CreateProductModalPro
 
     const fileExtension = file.name.split(".").pop();
     const fileName = formData.name.toLowerCase().replace(/\s+/g, "-") + "." + fileExtension;
-    const s3Url = process.env.NEXT_PUBLIC_S3_BASE_URL+fileName;
+    const s3Url = "https://praveenppk-inventorymanagement.s3.ap-south-1.amazonaws.com/"+fileName;
     console.log(s3Url);
     await fetch(s3Url, {
       method: "PUT",

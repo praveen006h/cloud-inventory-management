@@ -39,7 +39,7 @@ export default function Products() {
   const deleteImageFromS3 = async (imageName: string) => {
     if (!imageName) return;
   
-    const s3Url = process.env.NEXT_PUBLIC_S3_BASE_URL + imageName;
+    const s3Url = "https://praveenppk-inventorymanagement.s3.ap-south-1.amazonaws.com/" + imageName;
     console.log("Deleting from S3:", s3Url);
     console.log("Deleting from S3:", process.env.S3_BASE_URL);
   
@@ -113,7 +113,7 @@ export default function Products() {
 
             <div className="flex flex-col items-center">
               <Image
-                src={`${process.env.NEXT_PUBLIC_S3_BASE_URL+product.name
+                src={`https://praveenppk-inventorymanagement.s3.ap-south-1.amazonaws.com/${product.name
                   .toLowerCase()
                   .replace(/\s+/g, "-")}.png`}
                 alt={product.name}
