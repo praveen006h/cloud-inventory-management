@@ -9,4 +9,4 @@ If your users are loading/download files or images → hits the Tier2 (20,000)
 
 
 Amplify
-API Gateway
+API Gateway - Integrations
