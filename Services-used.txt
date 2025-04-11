@@ -1,0 +1,12 @@
+VPC, subnets
+EC2
+RDS
+
+S3:
+	If you're uploading files or data to S3 → hits the Tier1 (2,000)
+
+If your users are loading/download files or images → hits the Tier2 (20,000)
+
+
+Amplify
+API Gateway

@@ -24,6 +24,11 @@ const Users = () => {
   }
 
   return (
+    <>
+    <head>
+        <title>Inv-Manage</title>
+        <link rel="icon" href="https://praveenppk-inventorymanagement.s3.ap-south-1.amazonaws.com/logo.png" />
+      </head>
     <div className="flex flex-col">
       <Header name="Users" />
       <DataGrid
@@ -32,8 +37,9 @@ const Users = () => {
         getRowId={(row) => row.userId}
         checkboxSelection
         className="bg-white shadow rounded-lg border border-gray-200 mt-5 !text-gray-700"
-      />
+        />
     </div>
+    </>
   );
 };
 

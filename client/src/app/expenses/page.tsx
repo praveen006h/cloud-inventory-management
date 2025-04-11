@@ -89,6 +89,11 @@ const Expenses = () => {
   }
 
   return (
+    <>
+    <head>
+        <title>Inv-Manage</title>
+        <link rel="icon" href="https://praveenppk-inventorymanagement.s3.ap-south-1.amazonaws.com/logo.png" />
+      </head>
     <div>
       {/* HEADER */}
       <div className="mb-5">
@@ -116,7 +121,7 @@ const Expenses = () => {
                 className={classNames.selectInput}
                 defaultValue="All"
                 onChange={(e) => setSelectedCategory(e.target.value)}
-              >
+                >
                 <option>All</option>
                 <option>Office</option>
                 <option>Professional</option>
@@ -134,7 +139,7 @@ const Expenses = () => {
                 name="start-date"
                 className={classNames.selectInput}
                 onChange={(e) => setStartDate(e.target.value)}
-              />
+                />
             </div>
             {/* END DATE */}
             <div>
@@ -147,7 +152,7 @@ const Expenses = () => {
                 name="end-date"
                 className={classNames.selectInput}
                 onChange={(e) => setEndDate(e.target.value)}
-              />
+                />
             </div>
           </div>
         </div>
@@ -164,14 +169,14 @@ const Expenses = () => {
                 fill="#8884d8"
                 dataKey="amount"
                 onMouseEnter={(_, index) => setActiveIndex(index)}
-              >
+                >
                 {aggregatedData.map(
                   (entry: AggregatedDataItem, index: number) => (
                     <Cell
-                      key={`cell-${index}`}
-                      fill={
-                        index === activeIndex ? "rgb(29, 78, 216)" : entry.color
-                      }
+                    key={`cell-${index}`}
+                    fill={
+                      index === activeIndex ? "rgb(29, 78, 216)" : entry.color
+                    }
                     />
                   )
                 )}
@@ -183,6 +188,7 @@ const Expenses = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

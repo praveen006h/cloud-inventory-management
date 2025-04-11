@@ -43,6 +43,11 @@ const Products = () => {
   }
 
   return (
+    <>
+    <head>
+        <title>Inv-Manage</title>
+        <link rel="icon" href="https://praveenppk-inventorymanagement.s3.ap-south-1.amazonaws.com/logo.png" />
+      </head>
     <div className="mx-auto pb-5 w-full">
       {/* SEARCH BAR */}
       <div className="mb-6">
@@ -53,7 +58,7 @@ const Products = () => {
             placeholder="Search products..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-          />
+            />
         </div>
       </div>
 
@@ -63,7 +68,7 @@ const Products = () => {
         <button
           className="flex items-center bg-blue-500 hover:bg-blue-700 text-gray-200 font-bold py-2 px-4 rounded"
           onClick={() => setIsModalOpen(true)}
-        >
+          >
           <PlusCircleIcon className="w-5 h-5 mr-2 !text-gray-200" /> Create
           Product
         </button>
@@ -76,19 +81,23 @@ const Products = () => {
         ) : (
           products?.map((product) => (
             <div
-              key={product.productId}
-              className="border shadow rounded-md p-4 max-w-full w-full mx-auto"
+            key={product.productId}
+            className="border shadow rounded-md p-4 max-w-full w-full mx-auto"
             >
               <div className="flex flex-col items-center">
                 <Image
-                  src={`https://praveenppk-inventorymanagement.s3.ap-south-1.amazonaws.com/product${
-                    Math.floor(Math.random() * 3) + 1
+                  src={`https://praveenppk-inventorymanagement.s3.ap-south-1.amazonaws.com/${
+                    //Math.floor(Math.random() * 3) + 1
+                    product.name.toLowerCase().replace(/\s+/g, "-")
                   }.png`}
+                  
+                  
                   alt={product.name}
                   width={150}
                   height={150}
+                  style={{ height: "100px", width: "auto", objectFit: "contain" }}
                   className="mb-3 rounded-2xl w-36 h-36"
-                />
+                  />
                 <h3 className="text-lg text-gray-900 font-semibold">
                   {product.name}
                 </h3>
@@ -112,8 +121,9 @@ const Products = () => {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onCreate={handleCreateProduct}
-      />
+        />
     </div>
+    </>
   );
 };
 
