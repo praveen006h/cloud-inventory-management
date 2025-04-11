@@ -42,3 +42,34 @@ export const createProduct = async (
     res.status(500).json({ message: "Error creating product" });
   }
 };
+
+// Modified deleteProduct function to return Promise<void>
+export const deleteProduct = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  try {
+    const { productId } = req.params;
+
+    // Check if the product exists
+    const product = await prisma.products.findUnique({
+      where: { productId },
+    });
+
+    if (!product) {
+      res.status(404).json({ message: "Product not found" });
+      return;  // Ensures no further execution
+    }
+
+    // Delete the product
+    await prisma.products.delete({
+      where: { productId },
+    });
+
+    // Send empty response with status 204
+    res.status(204).send(); // 204 No Content
+  } catch (error) {
+    res.status(500).json({ message: "Error deleting product" });
+  }
+};
+
